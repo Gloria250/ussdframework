@@ -7,8 +7,8 @@ def  welcome(request):
     return render(request, 'index.html')
 
 #  python3 -m pip install africastalking
-AfricasUsername='tuganimana01@gmail.com'
-api_key ='1526a36fc4c257d18d07bcfd53b0d18324ce969a5cd6981a35abfa6028b259ac'
+AfricasUsername='glorianiyonkuru7@gmail.com'
+api_key ='56ae7384a0c2794b0580f2c189748b0add1ee3ffa46ca64d73d20c32513c6bc7'
 africastalking.initialize(AfricasUsername,api_key)
 
 @csrf_exempt
@@ -25,48 +25,43 @@ def ussdApp(request):
         response =""
         #  main menu for our application
         if text == '':
-            response =  "CON Murakaza neza kuri Idafarm \n"
-            response += "1. Kwandikisha igihingwa \n"
-            response += "2. Kumenya ingengabihe \n"
+            response =  "CON Welcome on agrivi platform \n"
+            response += "1. report for crop updates \n"
+            response += "2. reports on required equipments \n"
         elif text == '1':
-
-            response = "CON Hitamo igihingwa \n"
-            response += "1. Ibinyomoro \n"
-            response += "2. Indimu"
+            response = "CON report for crop updates \n"
+            response += "1. sweet potatoes \n"
+            response += "2. maize"
         elif text == '1*1':
-            product="Ibinyomoro"
-            response = "CON shyiramo ubuso bw'ubutaka bwawe bw' "+str(product)+"\n"
+            product="sweet potatoes"
+            response = "CON report on sweet potatoes yeild "+str(product)+"\n"
         elif category =='1*1' and int(len(level)) == 3 and str(level[2]) in  str(level):
-            response = "CON Uwo mubufatanyije \n"
+            response = "CON input code\n"
         elif category =='1*1' and int(len(level)) == 4 and str(level[3]) in  str(level):
-            response = "CON Shyiramo nimero y'irangamuntu yuwo mufatanyije \n"
+            response = "CON here is the report you requested for\n"
         elif category =='1*1' and int(len(level)) == 5 and str(level[4]) in  str(level):
-            response = "END Murakoze kwiyandikisha kuri Ida farm \n"
+            response = "END thank you for using our services\n"
 
 
         elif text == '1*2':
-            product ="Indimu"
-            response ="CON shyiramo ubuso bw'ubutaka bwawe bw' "+str(product)+"\n"
+            product ="maize"
+            response ="CON report on maize yeild "+str(product)+"\n"
         elif category =='1*2' and int(len(level)) == 3 and str(level[2]) in  str(level):
-            response = "CON Uwo mubufatanyije \n"
+            response = "CON input code\n"
         elif category =='1*2' and int(len(level)) == 4 and str(level[3]) in  str(level):
-            response = "CON Shyiramo nimero y'irangamuntu yuwo mufatanyije \n"
+            response = "CON here is the report you requested \n"
         elif category =='1*2' and int(len(level)) == 5 and str(level[4]) in  str(level):
-            response = "END Murakoze kwiyandikisha kuri Ida farm \n"
+            response = "END thank you for using our services \n"
          
-        #  ======================== INGENGABIHE==================
+        #  ======================== required equipments==================
         elif text == '2':
-            response = "CON Hitamo igihe \n "
-            response += "1. Rimwe mukwezi \n"
-            response += "2. Kabiri Mukwezi \n"
-            response += "3. Buri gihe"
+            response = "CON here are the required equipments \n "
+            response += "1. fertilizers needed \n"
+            response += "2. tools needed \n"
         elif text == '2*1':
             response ="END Murakoze , tuzajya tubagezaho amakuru ku iteganyagihe rimwe mukwezi"
         elif text == '2*2':
             response ="END Murakoze , tuzajya tubagezaho amakuru ku iteganyagihe kabiri mukwezi"
-        elif text == '2*3':
-            response ="END Murakoze , tuzajya tubagezaho amakuru ku iteganyagihe Buri munsi"
-
         else:
             response = "END Ukanze ibitaribyo, ongera mukanya"
         return HttpResponse(response)
