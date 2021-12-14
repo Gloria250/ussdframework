@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime
 # Create your models here.
-class Idafarmuser(models.Model):
+class Farmusers(models.Model):
     
     sessiondId = models.CharField(max_length=255, null=True)
     serviceCode = models.CharField(max_length=255, null=True)
