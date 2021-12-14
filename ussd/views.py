@@ -34,7 +34,9 @@ def ussdApp(request):
             response="CON report in for crop updates \n"
             for product in fetchproduct:
                 response +=""+str(product.id)+"."+str(product)+ "\n"
-
+                if text=='1':
+                    response="END you will be sent sms alert for the report you requested for"
+                  
         #     response += "1. sweet potatoes \n"
         #     response += "2. maize \n"
         #     response += "3.ibindi"
