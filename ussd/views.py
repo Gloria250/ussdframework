@@ -32,6 +32,7 @@ def ussdApp(request):
             response = "CON report for crop updates \n"
             response += "1. sweet potatoes \n"
             response += "2. maize"
+            response += "3.ibindi"
         elif text == '1*1':
             product="sweet potatoes"
             response = "CON report on sweet potatoes yeild "+str(product)+"\n"
