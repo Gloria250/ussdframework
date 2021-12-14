@@ -2,6 +2,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 import africastalking
 from django.views.decorators.csrf import csrf_exempt
+from .models import *
 # Create your views here.
 def  welcome(request):
     return render(request, 'index.html')
@@ -42,6 +43,13 @@ def ussdApp(request):
             response ="CON report on maize yeild "+str(product)+"\n"
         elif category =='1*2' and int(len(level)) == 3 and str(level[2]) in  str(level):
             response = "END you will be sent sms alert for the report you requested for\n"
+        elif text=='1*3':
+            response="CON report in for crop updates"
+            fetchproduct=CropModels.objects.all()
+            response="CON report in for crop updates"
+            for product in fetchproduct:
+                response +=""+str(product.id)+"."+str(product)+ "\n"
+
         else:
             response = "END Ukanze ibitaribyo, ongera mukanya"
         return HttpResponse(response)

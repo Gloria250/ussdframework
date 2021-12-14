@@ -7,3 +7,4 @@ class IdafarmuserAdmin (admin.ModelAdmin):
     search_fields =['phoneNumber']
 
 admin.site.register(Idafarmuser, IdafarmuserAdmin)
+admin.site.register(CropModels)
