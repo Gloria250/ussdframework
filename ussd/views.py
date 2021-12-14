@@ -35,13 +35,13 @@ def ussdApp(request):
             product="sweet potatoes"
             response = "CON report on sweet potatoes yeild "+str(product)+"\n"
         elif category =='1*1' and int(len(level)) == 3 and str(level[2]) in  str(level):
-            response = "CON here is the report you requested for\n"
+            response = "END here is the report you requested for\n"
 
         elif text == '1*2':
             product ="maize"
             response ="CON report on maize yeild "+str(product)+"\n"
         elif category =='1*2' and int(len(level)) == 3 and str(level[2]) in  str(level):
-            response = "CON here is the report you requested for\n"
+            response = "END here is the report you requested for\n"
         else:
             response = "END Ukanze ibitaribyo, ongera mukanya"
         return HttpResponse(response)
