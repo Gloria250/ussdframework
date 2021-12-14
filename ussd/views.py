@@ -23,11 +23,10 @@ def ussdApp(request):
         level = text.split('*')
         category = text[:3]
         response =""
-        #  main menu for our application
+        
         if text == '':
-            response =  "CON Welcome on agrivi platform \n"
+            response =  "CON Welcome to agrivi platform \n"
             response += "1. report for crop updates \n"
-            response += "2. reports on required equipments \n"
         elif text == '1':
             response = "CON report for crop updates \n"
             response += "1. sweet potatoes \n"
@@ -36,32 +35,13 @@ def ussdApp(request):
             product="sweet potatoes"
             response = "CON report on sweet potatoes yeild "+str(product)+"\n"
         elif category =='1*1' and int(len(level)) == 3 and str(level[2]) in  str(level):
-            response = "CON input code\n"
-        elif category =='1*1' and int(len(level)) == 4 and str(level[3]) in  str(level):
             response = "CON here is the report you requested for\n"
-        elif category =='1*1' and int(len(level)) == 5 and str(level[4]) in  str(level):
-            response = "END thank you for using our services\n"
-
 
         elif text == '1*2':
             product ="maize"
             response ="CON report on maize yeild "+str(product)+"\n"
         elif category =='1*2' and int(len(level)) == 3 and str(level[2]) in  str(level):
-            response = "CON input code\n"
-        elif category =='1*2' and int(len(level)) == 4 and str(level[3]) in  str(level):
-            response = "CON here is the report you requested \n"
-        elif category =='1*2' and int(len(level)) == 5 and str(level[4]) in  str(level):
-            response = "END thank you for using our services \n"
-         
-        #  ======================== required equipments==================
-        elif text == '2':
-            response = "CON here are the required equipments \n "
-            response += "1. fertilizers needed \n"
-            response += "2. tools needed \n"
-        elif text == '2*1':
-            response ="END Murakoze , tuzajya tubagezaho amakuru ku iteganyagihe rimwe mukwezi"
-        elif text == '2*2':
-            response ="END Murakoze , tuzajya tubagezaho amakuru ku iteganyagihe kabiri mukwezi"
+            response = "CON here is the report you requested for\n"
         else:
             response = "END Ukanze ibitaribyo, ongera mukanya"
         return HttpResponse(response)
