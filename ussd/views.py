@@ -31,7 +31,7 @@ def ussdApp(request):
         elif text == '1':
             response = "CON report for crop updates \n"
             fetchproduct=CropModels.objects.all()
-            response="CON report in for crop updates"
+            response="CON report in for crop updates \n"
             for product in fetchproduct:
                 response +=""+str(product.id)+"."+str(product)+ "\n"
 
@@ -55,7 +55,8 @@ def ussdApp(request):
         #     response="CON report in for crop updates"
         #     for product in fetchproduct:
         #         response +=""+str(product.id)+"."+str(product)+ "\n"
-
+        elif text==1:
+            response = "END you will be sent sms alert for the report you requested for\n"
         else:
             response = "END Ukanze ibitaribyo, ongera mukanya"
         return HttpResponse(response)
